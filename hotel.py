@@ -16,20 +16,20 @@ hotel = {
    '333': ['Neo', 'Trinity', 'Morpheus']
  }
 }
-
-
 def checkincheck():
     numbguest = input("how many people are in your party? >> ")
     if int(numbguest) > 1:  
-        input("please provide your name and a list of your guests. (separated by commas) >>")
+        names = input("please provide your name and a list of your guests. (separated by commas) >>")
     else:
         input("what is your name?")    
     inputcheckinfloor = input("what floor do you want? >> ")
     inputcheckinroom = input("what room do you want? >> ")
     if hotel.get(inputcheckinfloor) and hotel.get(inputcheckinfloor).get(inputcheckinroom) == None:
         print("ok, here you go.")
+        hotel[inputcheckinfloor][inputcheckinroom] = [names]
+        print(hotel)
     else: 
-        print('sorry that room is occupied.')
+        print('Sorry that room is occupied.')
 
 def checkout():
     inputguestfloor = input("What floor are you on? >> ")
@@ -38,7 +38,7 @@ def checkout():
         del hotel[inputguestfloor][inputguestroom]
         print(hotel)
     else:
-        print("that is an empty room")
+        print("That is an empty room.")
 
 def prompt():
     contin = True
