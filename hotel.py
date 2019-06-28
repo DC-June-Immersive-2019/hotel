@@ -48,7 +48,7 @@ def prompt():
             checkincheck()
         else:
             checkout()
-        tryagain = input("do you want anything ")
+        tryagain = input("do you want to start over?")
         if tryagain.lower() == "yes":
             contin = True
         else:
