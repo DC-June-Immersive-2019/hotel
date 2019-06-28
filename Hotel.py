@@ -41,7 +41,7 @@ def checkout() :
         room = input("What Room? ")
         if int(room) in range((int(floor)*100+1),(int(floor)*100+4)) :
             if hotel[floor][room] :
-                del hotel[floor][room]
+                hotel[floor][room] :[]
             else:
                 print("That room is unoccupied!" )
         else :
