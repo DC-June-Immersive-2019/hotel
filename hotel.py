@@ -5,6 +5,7 @@
 ## If checking out, remove the occupants from that room.
 ## not allow anyone to check into a room that is already occupied.
 ## Do not allow checking out of a room that isn't occupied.
+
 hotel = {
  '1': {
    '101': ['George Jefferson', 'Wheezy Jefferson'],
@@ -16,10 +17,25 @@ hotel = {
    '333': ['Neo', 'Trinity', 'Morpheus']
  }
 }
+
+symbol = "*"
+#wide = int(input('how wide do you want? ..'))
+#tall = int(input('how tall do you want? ..'))
+#userinput = input("what do you want your banner to say?")
+lengbanner = "Awesome-o Hotel Management Software"#len(userinput)
+print(symbol*(len(lengbanner)+2))
+for xx in range (1):
+    print(symbol+(lengbanner)+symbol)
+print(symbol*(len(lengbanner)+2))
+
+
+
+
 def checkincheck():
     numbguest = input("how many people are in your party? >> ")
     if int(numbguest) > 1:  
-        names = input("please provide your name and a list of your guests. (separated by commas) >>")
+        names = input("""please provide your name and a list of your guests. (separated by commas) 
+    >>""")
     else:
         input("what is your name?")    
     inputcheckinfloor = input("what floor do you want? >> ")
@@ -43,11 +59,16 @@ def checkout():
 def prompt():
     contin = True
     while contin: 
-        inputcheckinout = input("Do you want to check IN or Out? >> ")
-        if inputcheckinout.lower() == "in":
+        inputcheckinout = input("""Are you checking-in or checking-out?
+Press 1 for Check-In Menu
+Press 2 for Check-Out Menu
+        >>""")
+        if inputcheckinout.lower() == "1":
             checkincheck()
-        else:
+        elif inputcheckinout.lower() == "2":
             checkout()
+        else:
+            print("I'm sorry, that is an incorrect key.")
         tryagain = input("do you want to start over?")
         if tryagain.lower() == "yes":
             contin = True
