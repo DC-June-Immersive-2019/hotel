@@ -19,9 +19,6 @@ hotel = {
 }
 
 symbol = "*"
-#wide = int(input('how wide do you want? ..'))
-#tall = int(input('how tall do you want? ..'))
-#userinput = input("what do you want your banner to say?")
 lengbanner = "Awesome-o Hotel Management Software"#len(userinput)
 print(symbol*(len(lengbanner)+2))
 for xx in range (1):
@@ -35,9 +32,10 @@ def checkincheck():
     numbguest = input("how many people are in your party? >> ")
     if int(numbguest) > 1:  
         names = input("""please provide your name and a list of your guests. (separated by commas) 
-    >>""")
+    >> """)
     else:
-        input("what is your name?")    
+        input("""what is your name?
+    >> """)    
     inputcheckinfloor = input("what floor do you want? >> ")
     inputcheckinroom = input("what room do you want? >> ")
     if hotel.get(inputcheckinfloor) and hotel.get(inputcheckinfloor).get(inputcheckinroom) == None:
@@ -59,18 +57,25 @@ def checkout():
 def prompt():
     contin = True
     while contin: 
+# Decision #1
         inputcheckinout = input("""Are you checking-in or checking-out?
-Press 1 for Check-In Menu
-Press 2 for Check-Out Menu
+        Press 1 for Check-In Menu
+        Press 2 for Check-Out Menu
         >>""")
+#hard coded 1 and 2.  this makes sure that users cannot press any other key than those options. 
         if inputcheckinout.lower() == "1":
             checkincheck()
         elif inputcheckinout.lower() == "2":
             checkout()
+ #error if they press something other than keys 1 or 2       
         else:
             print("I'm sorry, that is an incorrect key.")
-        tryagain = input("do you want to start over?")
-        if tryagain.lower() == "yes":
+#start the loop back
+        tryagain = input("""do you want to start over?
+        Press 1 for Yes
+        Press 2 for No
+        >>  """)
+        if tryagain.lower() == "1":
             contin = True
         else:
             contin = False
